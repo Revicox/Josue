@@ -9,18 +9,18 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #c50606;
         }
 
         header {
-            background-color: #333;
+            background-color: #b60808;
             color: #fff;
             text-align: center;
             padding: 1em 0;
         }
 
         nav {
-            background-color: #444;
+            background-color: #910101;
             color: #fff;
             padding: 0.5em;
         }
@@ -51,7 +51,7 @@
         }
 
         footer {
-            background-color: #333;
+            background-color: #bb0707;
             color: #fff;
             text-align: center;
             padding: 1em 0;
@@ -71,7 +71,13 @@
     </nav>
     <section id="inicio">
         <h2>Inicio</h2>
-        <p>Esto es una pagina web de prueba aun esta en desarrollo ekisde bueno chau</p>
+        <p>¡Hola y bienvenido! Soy Josue Romero, un apasionado arquitecto digital, y este es tu portal hacia el emocionante universo del desarrollo web. Aquí, cada línea de código es un lienzo donde la creatividad y la tecnología convergen para dar forma a experiencias extraordinarias.
+
+            Sumérgete conmigo en el fascinante viaje de construir el futuro digital. Desde el primer 'Hola, Mundo' hasta la creación de entornos virtuales cautivadores, te invito a explorar la magia detrás de la pantalla.
+            
+            En este espacio, no solo creamos páginas web; construimos historias interactivas, diseñamos interfaces intuitivas y damos vida a tus ideas más innovadoras. ¿Listo para convertir la imaginación en realidad? Aquí, cada clic es una oportunidad de descubrimiento.
+            
+            Únete a mí mientras te guío a través de este emocionante viaje de innovación y aprendizaje. No solo estamos construyendo sitios web, estamos construyendo el futuro. ¡Bienvenido a un lugar donde la tecnología y la creatividad convergen para inspirar y transformar!</p>
     </section>
     <section id="contacto">
         <h2>Contacto</h2>
@@ -79,11 +85,11 @@
     </section>
     <section id="acerca">
         <h2>Acerca de Mí</h2>
-        <p>soy un pricipiante creando paginas web de este tipo asi que requiere tiempo nomas :D</p>
+        <p>Bienvenido a mi rincón digital. Soy Josue Romero, un apasionado creador de mundos virtuales. Aquí, transformamos líneas de código en experiencias cautivadoras. ¿Te unes a este viaje donde la innovación y la imaginación se encuentran? Descubre el poder de la tecnología para dar vida a tus sueños. ¡Adelante, la próxima gran idea está a solo un clic de distancia</p>
 
 <section id="calculadora">
     <h2>Calculadora</h2>
-    <p>Calculadora pa que te entretengas un rato saludos.</p>
+    <p>Calculadora pa que te entretengas un rato</p>
     <div id="calculator">
         <input type="text" id="calc-display" disabled>
         <br>
@@ -130,9 +136,225 @@
             document.getElementById("calc-display").value = "Error";
         }
     }
+    
 </script>
+
 <footer>
     <p>&copy; 2023 Josue Romero - Mi Primera Página Web</p>
 </footer>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Primera Página Web - Josue Romero</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        #pingpong {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        #pong {
+            position: relative;
+            width: 300px;
+            height: 150px;
+            border: 1px solid #333;
+            margin: 0 auto;
+        }
+
+        #ball {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #333;
+            border-radius: 50%;
+            top: 70px;
+            left: 140px;
+        }
+
+        #paddleA, #paddleB {
+            position: absolute;
+            width: 10px;
+            height: 60px;
+            background-color: #333;
+        }
+
+        #paddleA {
+            left: 10px;
+        }
+
+        #paddleB {
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <section id="pingpong">
+        <h2>Mini Juego de Ping Pong</h2>
+        <p>Controles: W para arriba y S para abajo</p>
+        <div id="pong">
+            <div id="ball"></div>
+            <div id="paddleA"></div>
+            <div id="paddleB"></div>
+        </div>
+        <script>
+            const paddleSpeed = 5;
+            const ballSpeed = 3;
+            
+            let paddleAY = 45;
+            let paddleBY = 45;
+            let ballX = 150;
+            let ballY = 75;
+            let ballSpeedX = ballSpeed;
+            let ballSpeedY = ballSpeed;
+
+            document.addEventListener("keydown", function(event) {
+                if (event.key === "w" && paddleAY > 0) {
+                    paddleAY -= paddleSpeed;
+                } else if (event.key === "s" && paddleAY < 90) {
+                    paddleAY += paddleSpeed;
+                }
+            });
+
+            function movePaddleB() {
+                // Simple lógica de seguimiento del bot
+                if (paddleBY + 30 < ballY) {
+                    paddleBY += paddleSpeed;
+                } else if (paddleBY + 30 > ballY) {
+                    paddleBY -= paddleSpeed;
+                }
+            }
+
+            function update() {
+                // Actualizar la posición de la pelota
+                ballX += ballSpeedX;
+                ballY += ballSpeedY;
+
+                // Rebote en las paredes superior e inferior
+                if (ballY < 0 || ballY > 150) {
+                    ballSpeedY = -ballSpeedY;
+                }
+
+                // Rebote en las paletas
+                if (
+                    (ballX < 20 && ballY > paddleAY && ballY < paddleAY + 60) ||
+                    (ballX > 270 && ballY > paddleBY && ballY < paddleBY + 60)
+                ) {
+                    ballSpeedX = -ballSpeedX;
+                }
+
+                // Puntuación y reinicio
+                if (ballX < 0 || ballX > 300) {
+                    ballX = 150;
+                    ballY = 75;
+                }
+
+                // Mover la paleta del bot
+                movePaddleB();
+
+                // Actualizar la posición de las paletas
+                document.getElementById("paddleA").style.top = paddleAY + "px";
+                document.getElementById("paddleB").style.top = paddleBY + "px";
+
+                // Actualizar la posición de la pelota
+                document.getElementById("ball").style.left = ballX + "px";
+                document.getElementById("ball").style.top = ballY + "px";
+            }
+
+            function gameLoop() {
+                update();
+                requestAnimationFrame(gameLoop);
+            }
+
+            gameLoop();
+        </script>
+    </section>
+</body>
+</html>
+
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: url('https://i.pinimg.com/474x/1a/28/18/1a281824b2f1faab9678eab109d31c5b.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Página con Imagen de Perfil</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #profile-picture {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        #profile-picture img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Resto de tu estilo... */
+    </style>
+</head>
+<body>
+    <div id="profile-picture">
+        <img src="https://ih1.redbubble.net/image.3913922381.1824/flat,750x,075,f-pad,750x1000,f8f8f8.jpg"alt="https://ih1.redbubble.net/image.3913922381.1824/flat,750x,075,f-pad,750x1000,f8f8f8.jpg">
+    </div>
+
+    <!-- Resto del contenido de tu página -->
 </body>
 </html>
