@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Primera Página Web - Josue Romero</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        nav {
+            background-color: #444;
+            color: #fff;
+            padding: 0.5em;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mi Primera Página Web - Josue Romero</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="#acerca">Acerca de Mí</a></li>
+        </ul>
+    </nav>
+    <section id="inicio">
+        <h2>Inicio</h2>
+        <p>Esto es una pagina web de prueba aun esta en desarrollo ekisde bueno chau</p>
+    </section>
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <p>Puedes contactarme a través de mi correo electrónico: <a href="mailto:tu_correo@example.com">romerojosueinfante@gmail.com</a></p>
+    </section>
+    <section id="acerca">
+        <h2>Acerca de Mí</h2>
+        <p>soy un pricipiante creando paginas web de este tipo asi que requiere tiempo nomas :D</p>
+
+<section id="calculadora">
+    <h2>Calculadora</h2>
+    <p>Calculadora pa que te entretengas un rato saludos.</p>
+    <div id="calculator">
+        <input type="text" id="calc-display" disabled>
+        <br>
+        <input type="button" value="1" onclick="appendNumber('1')">
+        <input type="button" value="2" onclick="appendNumber('2')">
+        <input type="button" value="3" onclick="appendNumber('3')">
+        <input type="button" value="/" onclick="appendOperator('/')">
+        <br>
+        <input type="button" value="4" onclick="appendNumber('4')">
+        <input type="button" value="5" onclick="appendNumber('5')">
+        <input type="button" value="6" onclick="appendNumber('6')">
+        <input type="button" value="-" onclick="appendOperator('-')">
+        <br>
+        <input type="button" value="7" onclick="appendNumber('7')">
+        <input type="button" value="8" onclick="appendNumber('8')">
+        <input type="button" value="9" onclick="appendNumber('9')">
+        <input type="button" value="+" onclick="appendOperator('+')">
+        <br>
+        <input type="button" value="C" onclick="clearDisplay()">
+        <input type="button" value="0" onclick="appendNumber('0')">
+        <input type="button" value="=" onclick="calculate()">
+    </div>
+</section>
+
+<script>
+    function appendNumber(number) {
+        document.getElementById("calc-display").value += number;
+    }
+
+    function appendOperator(operator) {
+        document.getElementById("calc-display").value += operator;
+    }
+
+    function clearDisplay() {
+        document.getElementById("calc-display").value = "";
+    }
+
+    function calculate() {
+        var expression = document.getElementById("calc-display").value;
+        try {
+            var result = eval(expression);
+            document.getElementById("calc-display").value = result;
+        } catch (error) {
+            document.getElementById("calc-display").value = "Error";
+        }
+    }
+</script>
+<footer>
+    <p>&copy; 2023 Josue Romero - Mi Primera Página Web</p>
+</footer>
+</body>
+</html>
